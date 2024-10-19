@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiGML Player</title>
+</head>
+<body>
+    <h1>SiGML Player</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word" />
+    <button onclick="playWord()">Play Word</button>
+
+    <script>
+        function playWord() {
+            const word = document.getElementById('wordInput').value.toLowerCase();
+            const letters = word.split('');
+            letters.forEach(letter => {
+                const sigmlFile = letter + '.sigml'; // Assuming SiGML files are named like "a.sigml"
+                const audio = new Audio(`/sigml/${sigmlFile}`);
+                audio.play();
+            });
+        }
+    </script>
+</body>
+</html>
